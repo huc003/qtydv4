@@ -1,0 +1,6 @@
+com\qtyd\model\User.class
+com\qtyd\db\DB.class
+com\qtyd\dao\funds\UserMapper.class
+com\qtyd\utils\PropertiesUtils.class
+com\qtyd\service\funds\FundsService.class
+com\qtyd\model\UserWithBLOBs.class
