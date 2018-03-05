@@ -1,5 +1,7 @@
 package com.qtyd.dao.funds;
 
+import java.util.List;
+
 import com.qtyd.model.User;
 import com.qtyd.model.UserWithBLOBs;
 
@@ -17,4 +19,6 @@ public interface UserMapper {
     int updateByPrimaryKeyWithBLOBs(UserWithBLOBs record);
 
     int updateByPrimaryKey(User record);
+    
+    List<Object> select();
 }

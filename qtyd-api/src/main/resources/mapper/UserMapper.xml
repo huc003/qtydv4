@@ -1062,4 +1062,12 @@
       logout_status = #{logoutStatus,jdbcType=TINYINT}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
+  
+  	<select id="select" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from dw_user
+  </select>
 </mapper>

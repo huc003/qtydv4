@@ -1,6 +1,9 @@
+com\qtyd\service\funds\FileService.class
 com\qtyd\model\User.class
 com\qtyd\db\DB.class
+com\qtyd\utils\ReadFromFileUtils.class
 com\qtyd\dao\funds\UserMapper.class
-com\qtyd\utils\PropertiesUtils.class
 com\qtyd\service\funds\FundsService.class
+com\qtyd\utils\ExportUtils.class
+com\qtyd\utils\PropertiesUtils.class
 com\qtyd\model\UserWithBLOBs.class
