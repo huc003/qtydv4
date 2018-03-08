@@ -22,13 +22,11 @@ public class FundsController {
     @Autowired
     private FundsService fundsService;
 
-    @RequestMapping(value = "/funds_user",method = RequestMethod.GET)
+    @RequestMapping(value = "/funds_user",method = RequestMethod.POST)
     @ApiOperation(value = "用户资金信息",notes = "")
     @ApiImplicitParam(name = "userId",value = "用户ID",required = true,dataType = "Long",paramType = "query")
     public User fundsUserByUserId(@RequestParam("userId") Long userId){
-    	System.out.println("-----用户资金");
         User userFunds = fundsService.userFundsByUserId(userId);
-//        String money = userFunds.get("user_id_"+userId)+"";
         return userFunds;
     }
 }

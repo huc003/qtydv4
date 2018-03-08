@@ -19,12 +19,12 @@ public class LotteryController
   @ApiOperation(value="抽奖操作类", notes="")
   public String two_color()
   {
-    List<Integer> redList = new ArrayList();
-    List<Integer> blueList = new ArrayList();
-    List<Integer> redListR = new ArrayList();
-    List<Integer> blueListR = new ArrayList();
+    List<Integer> redList = new ArrayList<Integer>();
+    List<Integer> blueList = new ArrayList<Integer>();
+    List<Integer> redListR = new ArrayList<Integer>();
+    List<Integer> blueListR = new ArrayList<Integer>();
     StringBuffer sbBuffer = new StringBuffer("red:");
-    List<Integer> list = new ArrayList();
+    List<Integer> list = new ArrayList<Integer>();
     for (int i = 1; i <= 33; i++) {
       redList.add(Integer.valueOf(i));
     }

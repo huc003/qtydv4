@@ -2,6 +2,7 @@ package com.qtyd.utils;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -18,9 +19,8 @@ public class ConversionUtils {
 	 * @throws IllegalAccessException
 	 */
 	 public static Map<String, Object> objectToMap(Object obj) throws IllegalAccessException {
-         Map<String, Object> map = new HashMap<String, Object>();
+         Map<String, Object> map = new LinkedHashMap<String, Object>();
          Class<?> clazz = obj.getClass();
-         System.out.println(clazz);
          for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true);
             String fieldName = field.getName();

@@ -6,16 +6,13 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.CellType;
-
 /**
 * @author huc E-mail:459382234@qq.com
 * @version 创建时间：2018年3月5日 下午1:29:52
@@ -28,16 +25,23 @@ public class ExportExcelUtils {
 	 * @param strTitle
 	 * @param sheet
 	 */
-	public static void createSheetTitle(String strTitle,HSSFSheet sheet){
+	public static void createSheetTitle(String strTitle,HSSFSheet sheet,HSSFCellStyle setBorder){
 		HSSFRow row = sheet.createRow(0);//创建表格的第一行
 		sheet.setDefaultColumnWidth(4);
 		HSSFCell cell = null;
 		String[] strArray = strTitle.split(",");
+		
+		setBorder.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		setBorder.setBorderBottom(HSSFCellStyle.BORDER_THIN); //下边框
+		setBorder.setBorderLeft(HSSFCellStyle.BORDER_THIN);//左边框
+		setBorder.setBorderTop(HSSFCellStyle.BORDER_THIN);//上边框
+		setBorder.setBorderRight(HSSFCellStyle.BORDER_THIN);//右边框
+		
 		for (int i = 0; i < strArray.length; i++) {
 			cell = row.createCell(i);//创建该行的第一列
-			cell.setCellType(CellType.STRING);//CELL_TYPE_STRING
+			cell.setCellType(HSSFCell.CELL_TYPE_STRING);//CELL_TYPE_STRING
 			cell.setCellValue(new HSSFRichTextString(strArray[i]));
-			
+			cell.setCellStyle(setBorder);
 //			sheet.autoSizeColumn(i);
 //          sheet.autoSizeColumn(i, true);
 			sheet.setColumnWidth(i, strArray[i].getBytes().length*2*256);
@@ -56,10 +60,17 @@ public class ExportExcelUtils {
 		HSSFWorkbook wb = new HSSFWorkbook();
 		//创建一个表格Sheet
 		HSSFSheet sheet = wb.createSheet(sheetName);
+		
+		HSSFCellStyle setBorder  = wb.createCellStyle();   
+//		HSSFFont font = wb.createFont();
+//		font.setFontName("黑体");
+//		font.setFontHeightInPoints((short) 16);//设置字体大小
+		
 		//创建Sheet的第一行
-		createSheetTitle(title,sheet);
+		createSheetTitle(title,sheet,setBorder);
 		//设置sheet的主题内容
-		createSheetBody(list,sheet);
+		createSheetBody(list,sheet,setBorder,title);
+		
         OutputStream out = null;    
         try {        
             out = response.getOutputStream();    
@@ -83,8 +94,17 @@ public class ExportExcelUtils {
 	 * @param list
 	 * @param sheet
 	 */
-	private static void createSheetBody(List<Object> list, HSSFSheet sheet) {
+	private static void createSheetBody(List<Object> list, HSSFSheet sheet,HSSFCellStyle setBorder,String title) {
 		HSSFRow row = null;
+//		setBorder.setFillForegroundColor((short) 13);// 设置背景色
+		setBorder.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		setBorder.setBorderBottom(HSSFCellStyle.BORDER_THIN); //下边框
+		setBorder.setBorderLeft(HSSFCellStyle.BORDER_THIN);//左边框
+		setBorder.setBorderTop(HSSFCellStyle.BORDER_THIN);//上边框
+		setBorder.setBorderRight(HSSFCellStyle.BORDER_THIN);//右边框
+		
+		int len = title.split(",").length;
+		
         for (int i = 0; i < list.size(); i++)    
         {    
             row = sheet.createRow((int) i + 1);    
@@ -93,10 +113,13 @@ public class ExportExcelUtils {
 				Map<String, Object> map = ConversionUtils.objectToMap(stu);
 				int n = 0;
 				for(Entry<String, Object> entry : map.entrySet()){  
-				    if(entry!=null&&entry.getValue()!=null){
-				    	row.createCell(n).setCellValue(entry.getValue().toString());
-				    	n++;
+					if(!entry.getKey().equals("serialVersionUID")&&n<len){
+						row.createCell(n).setCellStyle(setBorder);
+					}
+				    if(entry!=null&&entry.getValue()!=null&&!entry.getKey().equals("serialVersionUID")){
+				    	row.getCell(n).setCellValue(entry.getValue().toString());
 				    }
+				    n++;
 				} 
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();

@@ -20,9 +20,9 @@ public class UserServiceImpl implements UserService{
     private UserMapper userMapper;
 	
 	@Override
-	public List<Object> allUser() {
+	public List<Object> allUser(String where) {
 		// TODO Auto-generated method stub
-		return userMapper.select();
+		return userMapper.select(where);
 	}
 
 }

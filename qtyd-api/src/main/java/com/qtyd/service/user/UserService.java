@@ -8,5 +8,5 @@ import java.util.List;
 * 类说明
 */
 public interface UserService {
-	List<Object> allUser();
+	List<Object> allUser(String where);
 }

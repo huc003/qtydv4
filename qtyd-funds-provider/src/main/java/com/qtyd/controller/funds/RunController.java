@@ -1,11 +1,13 @@
 package com.qtyd.controller.funds;
 
-import org.apache.log4j.Logger;
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.qtyd.FundsProviderApplication;
 import com.qtyd.utils.PropertiesUtils;
 
 /**
@@ -16,8 +18,10 @@ import com.qtyd.utils.PropertiesUtils;
 @Component
 public class RunController implements ApplicationRunner{
 	
-	private Logger logger = Logger.getLogger(FundsProviderApplication.class);
-
+//	private Logger logger = Logger.getLogger(FundsProviderApplication.class);
+	
+	private Logger logger = LoggerFactory.getLogger(RunController.class);
+	
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
 		String active = PropertiesUtils.getProperties("spring.profiles.active");
@@ -29,6 +33,8 @@ public class RunController implements ApplicationRunner{
 	    } else if (active.equals("prod")) {
 	      activeName = "数据库环境=正式环境";
 	    }
+	    logger.info(activeName);
+	    logger.error("错误日志");
 	    System.out.println(activeName);
 	}
 

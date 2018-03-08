@@ -18,8 +18,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-		<apache_poi>3.17</apache_poi>
+		<apache_poi>3.9</apache_poi>
 		<javax_servlet>4.0.0</javax_servlet>
+		<log4j_version>1.2.12</log4j_version>
+		<jom_version>1.1.3</jom_version>
+		<alibaba_fastjson>1.2.41</alibaba_fastjson>
+		<guava_version>18.0</guava_version>
+		<gson_version>2.2.2</gson_version>
+		<commons_lang_version>2.3</commons_lang_version>
+		<fastjson_version>1.1.39</fastjson_version>
+		<json_lib_version>2.4</json_lib_version>
+		<json_version>20090211</json_version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,7 +50,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.41</version>
+			<version>${alibaba_fastjson}</version>
 		</dependency>
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -61,13 +70,8 @@
 		<dependency>
 			<groupId>org.jdom</groupId>
 			<artifactId>jdom</artifactId>
-			<version>1.1.3</version>
+			<version>${jom_version}</version>
 		</dependency>
-		<!-- <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <version>3.8.1</version>
-	    </dependency> -->
 	    <dependency>
 		    <groupId>org.apache.poi</groupId>
 		    <artifactId>poi</artifactId>
@@ -79,16 +83,48 @@
 		    <artifactId>javax.servlet-api</artifactId>
 		    <version>${javax_servlet}</version>
 		</dependency>
-
+		<dependency>
+             <groupId>com.google.guava</groupId>
+             <artifactId>guava</artifactId>
+             <version>${guava_version}</version>
+         </dependency>
+         <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+            </dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.12</version>
+			<version>${log4j_version}</version>
 		</dependency>
-		
+		<dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons_lang_version}</version>
+            </dependency>
+		<dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson_version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.json-lib</groupId>
+                <artifactId>json-lib</artifactId>
+                <version>${json_lib_version}</version>
+                <classifier>jdk15</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${json_version}</version>
+            </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
 	</dependencies>
 </project>
