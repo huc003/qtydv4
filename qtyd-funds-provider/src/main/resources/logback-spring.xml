@@ -84,14 +84,14 @@
 
     <root level="info">
         <appender-ref ref="console" />
-        <appender-ref ref="fileInfoLog" />
-        <appender-ref ref="fileErrorLog" />
+        <appender-ref ref="fileInfoLog"/>
+        <appender-ref ref="fileErrorLog"/>
     </root>
 
     <!-- logback为java中的包 -->
     <!-- <logger name="com.qtyd.controller"/> -->
     <!-- logback.LogbackDemo：类的全路径 -->
-   <!--  <logger name="com.qtyd.controller" level="ERROR" additivity="true">
-        <appender-ref ref="error" />
-    </logger> -->
+   <logger name="com.qtyd.dao" level="DEBUG" additivity="true">
+        <appender-ref ref="fileInfoLog" />
+    </logger>
 </configuration>
