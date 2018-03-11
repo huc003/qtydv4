@@ -3,6 +3,8 @@ package com.qtyd.utils;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,6 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.util.StringUtils;
 /**
 * @author huc E-mail:459382234@qq.com
 * @version 创建时间：2018年3月5日 下午1:29:52
@@ -103,23 +106,34 @@ public class ExportExcelUtils {
 		setBorder.setBorderTop(HSSFCellStyle.BORDER_THIN);//上边框
 		setBorder.setBorderRight(HSSFCellStyle.BORDER_THIN);//右边框
 		
-		int len = title.split(",").length;
+		String[] strings = title.split(",");
+		String string = "";
+		for (int i = 0; i < strings.length; i++) {
+			if(strings[i].contains("_")) {
+				String[] string2 = strings[i].split("_");
+				char[] cs=string2[1].toCharArray();
+		        cs[0]-=32;
+		        string +=string2[0]+String.valueOf(cs)+",";
+		        continue;
+			}
+			string+=strings[i]+",";
+		}
+		System.out.println(string.replaceAll("`", ""));
 		
-        for (int i = 0; i < list.size(); i++)    
-        {    
+        for (int i = 0; i < list.size(); i++){    
             row = sheet.createRow((int) i + 1);    
             Object stu = (Object) list.get(i);    
             try {
-				Map<String, Object> map = ConversionUtils.objectToMap(stu);
+            		Map<String, Object> map = ConversionUtils.objectToMap(stu);
 				int n = 0;
-				for(Entry<String, Object> entry : map.entrySet()){  
-					if(!entry.getKey().equals("serialVersionUID")&&n<len){
+				for(Entry<String, Object> entry : map.entrySet()){
+					if(!entry.getKey().equals("serialVersionUID")&&string.contains(entry.getKey())){
 						row.createCell(n).setCellStyle(setBorder);
+					    if(entry!=null&&entry.getValue()!=null&&!entry.getKey().equals("serialVersionUID")){
+					    		row.getCell(n).setCellValue(entry.getValue().toString());
+					    }
+					    n++;
 					}
-				    if(entry!=null&&entry.getValue()!=null&&!entry.getKey().equals("serialVersionUID")){
-				    	row.getCell(n).setCellValue(entry.getValue().toString());
-				    }
-				    n++;
 				} 
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
