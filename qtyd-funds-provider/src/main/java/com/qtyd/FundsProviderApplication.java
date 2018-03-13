@@ -12,8 +12,10 @@ import org.springframework.context.annotation.Import;
  * 项目启动类
  */
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import com.qtyd.config.RedisConfig;
+import com.qtyd.config.SessionConfig;
 @Configuration
-@Import({Swagger2.class})
+@Import({Swagger2.class,RedisConfig.class,SessionConfig.class})
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages={"com.qtyd.db", "com.qtyd.dao", "com.qtyd.controller", "com.qtyd.service"})

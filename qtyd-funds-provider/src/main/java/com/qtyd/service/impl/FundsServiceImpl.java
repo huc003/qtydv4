@@ -21,14 +21,7 @@ public class FundsServiceImpl implements FundsService{
 
     @Override
     public User userFundsByUserId(Long userId) {
-//        Map<String,Object> userFunds = new LinkedHashMap<String,Object>();
-//        for (int i = 0; i < 10; i++) {
-//            userFunds.put("user_id_"+i,i*1000);
-//        }
-    	System.out.println("用户紫荆："+userMapper);
-        User user = userMapper.selectByPrimaryKey(1274829);
-        System.out.println(user.getUsername());
-        System.out.println(user.getUserId());
+        User user = userMapper.selectByPrimaryKey(1274265);
         return user;
     }
 }

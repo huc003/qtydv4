@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration  scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
-    <property name="log.path" value="../logs" />
+    <property name="log.path" value="logs" />
     <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
        <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -83,9 +83,9 @@
 	</appender>
 
     <root level="info">
-        <appender-ref ref="console" />
+    	<appender-ref ref="console" />
+    	<appender-ref ref="fileErrorLog"/>
         <appender-ref ref="fileInfoLog"/>
-        <appender-ref ref="fileErrorLog"/>
     </root>
 
     <!-- logback为java中的包 -->

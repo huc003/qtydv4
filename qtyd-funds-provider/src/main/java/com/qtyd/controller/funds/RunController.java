@@ -2,13 +2,18 @@ package com.qtyd.controller.funds;
 
 import java.io.IOException;
 
+//import org.apache.log4j.Logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import com.qtyd.utils.PropertiesUtils;
+
+import redis.clients.jedis.Jedis;
 
 /**
 * @author huc E-mail:459382234@qq.com
@@ -18,9 +23,12 @@ import com.qtyd.utils.PropertiesUtils;
 @Component
 public class RunController implements ApplicationRunner{
 	
-//	private Logger logger = Logger.getLogger(FundsProviderApplication.class);
+//	private Logger logger = Logger.getLogger(RunController.class);
 	
 	private Logger logger = LoggerFactory.getLogger(RunController.class);
+	
+	@Autowired
+	private StringRedisTemplate stringRedisTemplate;
 	
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
@@ -35,6 +43,11 @@ public class RunController implements ApplicationRunner{
 	    }
 	    logger.info(activeName);
 	    logger.error("错误日志");
+        
+        // 保存字符串
+     	stringRedisTemplate.opsForValue().set("aaa", "111");
+     	System.out.println(stringRedisTemplate.opsForValue().get("aaa"));
+     		
 	    System.out.println(activeName);
 	}
 
