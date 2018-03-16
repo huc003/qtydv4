@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.qtyd.service.funds.FileService;
-import com.qtyd.service.user.UserService;
+
+import com.qtyd.service.FileService;
+import com.qtyd.service.UserService;
 import com.qtyd.utils.ExportExcelUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

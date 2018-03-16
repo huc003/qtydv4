@@ -1,4 +1,4 @@
-package com.qtyd.service.user;
+package com.qtyd.service;
 
 import java.util.List;
 

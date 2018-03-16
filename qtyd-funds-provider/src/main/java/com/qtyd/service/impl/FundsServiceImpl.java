@@ -1,8 +1,9 @@
 package com.qtyd.service.impl;
 
-import com.qtyd.dao.funds.UserMapper;
+import com.qtyd.dao.UserMapper;
 import com.qtyd.model.User;
-import com.qtyd.service.funds.FundsService;
+import com.qtyd.service.FundsService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

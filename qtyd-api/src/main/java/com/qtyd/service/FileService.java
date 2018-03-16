@@ -1,4 +1,4 @@
-package com.qtyd.service.funds;
+package com.qtyd.service;
 
 import java.util.Set;
 

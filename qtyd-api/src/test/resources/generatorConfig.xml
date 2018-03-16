@@ -25,7 +25,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.2.7:3339/qttz_cashier_xiamen" userId="qtyd_xiamen" password="qtyd_xiamen">
+                        connectionURL="jdbc:mysql://192.168.2.19:3306/qttz_cashier_xiamen" userId="root" password="123456">
         </jdbcConnection>
         <javaTypeResolver>
             <!-- This property is used to specify whether MyBatis Generator should
@@ -34,23 +34,23 @@
         </javaTypeResolver>
         <!-- 生成模型的包名和位置 -->
         <javaModelGenerator targetPackage="com.qtyd.model"
-                            targetProject="src\main\java">
+                            targetProject="qtyd-api\src\main\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- 生成映射文件的包名和位置 -->
         <sqlMapGenerator targetPackage="mapper"
-                         targetProject="src\main\resources">
+                         targetProject="qtyd-api\src\main\resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.qtyd.dao.funds"  targetProject="src\main\java">
+                             targetPackage="com.qtyd.dao"  targetProject="qtyd-api\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <!-- 要生成哪些表 -->
-        <table tableName="dw_user" domainObjectName="User"
+        <table tableName="dw_user_reward" domainObjectName="UserReward"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>

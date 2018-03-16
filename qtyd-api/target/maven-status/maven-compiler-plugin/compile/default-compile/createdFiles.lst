@@ -2,6 +2,7 @@ com\qtyd\model\User.class
 com\qtyd\utils\CommonUtils.class
 com\qtyd\utils\ReadFromFileUtils.class
 com\qtyd\utils\Snowflake.class
+com\qtyd\config\SessionConfig.class
 com\qtyd\utils\Tools.class
 com\qtyd\utils\FileUtils.class
 com\qtyd\utils\Base64.class
@@ -16,13 +17,15 @@ com\qtyd\utils\NumberToCNUtils.class
 com\qtyd\utils\ExportExcelUtils.class
 com\qtyd\utils\JSONUtils.class
 com\qtyd\db\DB.class
+com\qtyd\config\RedisConfig.class
 com\qtyd\utils\TimeUtils.class
 com\qtyd\dao\funds\UserMapper.class
 com\qtyd\service\funds\FundsService.class
 com\qtyd\utils\ValidatorUtils$1Version.class
+com\qtyd\service\user\ScheduledTaskService.class
 com\qtyd\utils\SignUtil.class
 com\qtyd\utils\DesUtils.class
 com\qtyd\utils\ValidatorUtils.class
+com\qtyd\config\RedisConfig$1.class
 com\qtyd\utils\GsonUtil.class
 com\qtyd\utils\ConversionUtils.class
-com\qtyd\model\UserWithBLOBs.class

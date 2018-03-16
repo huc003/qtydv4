@@ -1,7 +1,8 @@
 package com.qtyd.controller.funds;
 
 import com.qtyd.model.User;
-import com.qtyd.service.funds.FundsService;
+import com.qtyd.service.FundsService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

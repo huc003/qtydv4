@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qtyd.dao.UserRewardMapper">
+  <resultMap id="BaseResultMap" type="com.qtyd.model.UserReward">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="is_use" jdbcType="TINYINT" property="isUse" />
+    <result column="timeout" jdbcType="INTEGER" property="timeout" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="recommended_id" jdbcType="INTEGER" property="recommendedId" />
+    <result column="usetime" jdbcType="INTEGER" property="usetime" />
+    <result column="tender_id" jdbcType="INTEGER" property="tenderId" />
+    <result column="borrow_id" jdbcType="INTEGER" property="borrowId" />
+    <result column="reward_no" jdbcType="VARCHAR" property="rewardNo" />
+    <result column="utender_id" jdbcType="INTEGER" property="utenderId" />
+    <result column="uborrow_id" jdbcType="INTEGER" property="uborrowId" />
+    <result column="reward_style" jdbcType="TINYINT" property="rewardStyle" />
+    <result column="reward_name" jdbcType="VARCHAR" property="rewardName" />
+    <result column="use_together" jdbcType="TINYINT" property="useTogether" />
+    <result column="weixin_id" jdbcType="VARCHAR" property="weixinId" />
+    <result column="borrow_limit" jdbcType="VARCHAR" property="borrowLimit" />
+    <result column="newhand_limit" jdbcType="BIT" property="newhandLimit" />
+    <result column="frist_invest_limit" jdbcType="BIT" property="fristInvestLimit" />
+    <result column="money_limit" jdbcType="DECIMAL" property="moneyLimit" />
+    <result column="special_borrow_id" jdbcType="VARCHAR" property="specialBorrowId" />
+    <result column="special_remark" jdbcType="VARCHAR" property="specialRemark" />
+    <result column="sign" jdbcType="TINYINT" property="sign" />
+    <result column="borrow_days" jdbcType="INTEGER" property="borrowDays" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, money, type, is_use, timeout, addtime, username, recommended_id, usetime, 
+    tender_id, borrow_id, reward_no, utender_id, uborrow_id, reward_style, reward_name, 
+    use_together, weixin_id, borrow_limit, newhand_limit, frist_invest_limit, money_limit, 
+    special_borrow_id, special_remark, sign, borrow_days
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dw_user_reward
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dw_user_reward
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qtyd.model.UserReward">
+    insert into dw_user_reward (id, user_id, money, 
+      type, is_use, timeout, 
+      addtime, username, recommended_id, 
+      usetime, tender_id, borrow_id, 
+      reward_no, utender_id, uborrow_id, 
+      reward_style, reward_name, use_together, 
+      weixin_id, borrow_limit, newhand_limit, 
+      frist_invest_limit, money_limit, special_borrow_id, 
+      special_remark, sign, borrow_days
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL}, 
+      #{type,jdbcType=TINYINT}, #{isUse,jdbcType=TINYINT}, #{timeout,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{recommendedId,jdbcType=INTEGER}, 
+      #{usetime,jdbcType=INTEGER}, #{tenderId,jdbcType=INTEGER}, #{borrowId,jdbcType=INTEGER}, 
+      #{rewardNo,jdbcType=VARCHAR}, #{utenderId,jdbcType=INTEGER}, #{uborrowId,jdbcType=INTEGER}, 
+      #{rewardStyle,jdbcType=TINYINT}, #{rewardName,jdbcType=VARCHAR}, #{useTogether,jdbcType=TINYINT}, 
+      #{weixinId,jdbcType=VARCHAR}, #{borrowLimit,jdbcType=VARCHAR}, #{newhandLimit,jdbcType=BIT}, 
+      #{fristInvestLimit,jdbcType=BIT}, #{moneyLimit,jdbcType=DECIMAL}, #{specialBorrowId,jdbcType=VARCHAR}, 
+      #{specialRemark,jdbcType=VARCHAR}, #{sign,jdbcType=TINYINT}, #{borrowDays,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qtyd.model.UserReward">
+    insert into dw_user_reward
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="isUse != null">
+        is_use,
+      </if>
+      <if test="timeout != null">
+        timeout,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="recommendedId != null">
+        recommended_id,
+      </if>
+      <if test="usetime != null">
+        usetime,
+      </if>
+      <if test="tenderId != null">
+        tender_id,
+      </if>
+      <if test="borrowId != null">
+        borrow_id,
+      </if>
+      <if test="rewardNo != null">
+        reward_no,
+      </if>
+      <if test="utenderId != null">
+        utender_id,
+      </if>
+      <if test="uborrowId != null">
+        uborrow_id,
+      </if>
+      <if test="rewardStyle != null">
+        reward_style,
+      </if>
+      <if test="rewardName != null">
+        reward_name,
+      </if>
+      <if test="useTogether != null">
+        use_together,
+      </if>
+      <if test="weixinId != null">
+        weixin_id,
+      </if>
+      <if test="borrowLimit != null">
+        borrow_limit,
+      </if>
+      <if test="newhandLimit != null">
+        newhand_limit,
+      </if>
+      <if test="fristInvestLimit != null">
+        frist_invest_limit,
+      </if>
+      <if test="moneyLimit != null">
+        money_limit,
+      </if>
+      <if test="specialBorrowId != null">
+        special_borrow_id,
+      </if>
+      <if test="specialRemark != null">
+        special_remark,
+      </if>
+      <if test="sign != null">
+        sign,
+      </if>
+      <if test="borrowDays != null">
+        borrow_days,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="isUse != null">
+        #{isUse,jdbcType=TINYINT},
+      </if>
+      <if test="timeout != null">
+        #{timeout,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedId != null">
+        #{recommendedId,jdbcType=INTEGER},
+      </if>
+      <if test="usetime != null">
+        #{usetime,jdbcType=INTEGER},
+      </if>
+      <if test="tenderId != null">
+        #{tenderId,jdbcType=INTEGER},
+      </if>
+      <if test="borrowId != null">
+        #{borrowId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardNo != null">
+        #{rewardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="utenderId != null">
+        #{utenderId,jdbcType=INTEGER},
+      </if>
+      <if test="uborrowId != null">
+        #{uborrowId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardStyle != null">
+        #{rewardStyle,jdbcType=TINYINT},
+      </if>
+      <if test="rewardName != null">
+        #{rewardName,jdbcType=VARCHAR},
+      </if>
+      <if test="useTogether != null">
+        #{useTogether,jdbcType=TINYINT},
+      </if>
+      <if test="weixinId != null">
+        #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowLimit != null">
+        #{borrowLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="newhandLimit != null">
+        #{newhandLimit,jdbcType=BIT},
+      </if>
+      <if test="fristInvestLimit != null">
+        #{fristInvestLimit,jdbcType=BIT},
+      </if>
+      <if test="moneyLimit != null">
+        #{moneyLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="specialBorrowId != null">
+        #{specialBorrowId,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRemark != null">
+        #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null">
+        #{sign,jdbcType=TINYINT},
+      </if>
+      <if test="borrowDays != null">
+        #{borrowDays,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qtyd.model.UserReward">
+    update dw_user_reward
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="isUse != null">
+        is_use = #{isUse,jdbcType=TINYINT},
+      </if>
+      <if test="timeout != null">
+        timeout = #{timeout,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedId != null">
+        recommended_id = #{recommendedId,jdbcType=INTEGER},
+      </if>
+      <if test="usetime != null">
+        usetime = #{usetime,jdbcType=INTEGER},
+      </if>
+      <if test="tenderId != null">
+        tender_id = #{tenderId,jdbcType=INTEGER},
+      </if>
+      <if test="borrowId != null">
+        borrow_id = #{borrowId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardNo != null">
+        reward_no = #{rewardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="utenderId != null">
+        utender_id = #{utenderId,jdbcType=INTEGER},
+      </if>
+      <if test="uborrowId != null">
+        uborrow_id = #{uborrowId,jdbcType=INTEGER},
+      </if>
+      <if test="rewardStyle != null">
+        reward_style = #{rewardStyle,jdbcType=TINYINT},
+      </if>
+      <if test="rewardName != null">
+        reward_name = #{rewardName,jdbcType=VARCHAR},
+      </if>
+      <if test="useTogether != null">
+        use_together = #{useTogether,jdbcType=TINYINT},
+      </if>
+      <if test="weixinId != null">
+        weixin_id = #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowLimit != null">
+        borrow_limit = #{borrowLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="newhandLimit != null">
+        newhand_limit = #{newhandLimit,jdbcType=BIT},
+      </if>
+      <if test="fristInvestLimit != null">
+        frist_invest_limit = #{fristInvestLimit,jdbcType=BIT},
+      </if>
+      <if test="moneyLimit != null">
+        money_limit = #{moneyLimit,jdbcType=DECIMAL},
+      </if>
+      <if test="specialBorrowId != null">
+        special_borrow_id = #{specialBorrowId,jdbcType=VARCHAR},
+      </if>
+      <if test="specialRemark != null">
+        special_remark = #{specialRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null">
+        sign = #{sign,jdbcType=TINYINT},
+      </if>
+      <if test="borrowDays != null">
+        borrow_days = #{borrowDays,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qtyd.model.UserReward">
+    update dw_user_reward
+    set user_id = #{userId,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      type = #{type,jdbcType=TINYINT},
+      is_use = #{isUse,jdbcType=TINYINT},
+      timeout = #{timeout,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      recommended_id = #{recommendedId,jdbcType=INTEGER},
+      usetime = #{usetime,jdbcType=INTEGER},
+      tender_id = #{tenderId,jdbcType=INTEGER},
+      borrow_id = #{borrowId,jdbcType=INTEGER},
+      reward_no = #{rewardNo,jdbcType=VARCHAR},
+      utender_id = #{utenderId,jdbcType=INTEGER},
+      uborrow_id = #{uborrowId,jdbcType=INTEGER},
+      reward_style = #{rewardStyle,jdbcType=TINYINT},
+      reward_name = #{rewardName,jdbcType=VARCHAR},
+      use_together = #{useTogether,jdbcType=TINYINT},
+      weixin_id = #{weixinId,jdbcType=VARCHAR},
+      borrow_limit = #{borrowLimit,jdbcType=VARCHAR},
+      newhand_limit = #{newhandLimit,jdbcType=BIT},
+      frist_invest_limit = #{fristInvestLimit,jdbcType=BIT},
+      money_limit = #{moneyLimit,jdbcType=DECIMAL},
+      special_borrow_id = #{specialBorrowId,jdbcType=VARCHAR},
+      special_remark = #{specialRemark,jdbcType=VARCHAR},
+      sign = #{sign,jdbcType=TINYINT},
+      borrow_days = #{borrowDays,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

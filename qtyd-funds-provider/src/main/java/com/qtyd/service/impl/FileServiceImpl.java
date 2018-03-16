@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-import com.qtyd.service.funds.FileService;
+import com.qtyd.service.FileService;
 import com.qtyd.utils.ReadFromFileUtils;
 /**
 * @author huc E-mail:459382234@qq.com

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qtyd.dao.funds.UserMapper;
-import com.qtyd.service.user.UserService;
+import com.qtyd.dao.UserMapper;
+import com.qtyd.service.UserService;
 
 /**
 * @author huc E-mail:459382234@qq.com
@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public List<Object> allUser(String where) {
-		// TODO Auto-generated method stub
 		return userMapper.select(where);
 	}
 

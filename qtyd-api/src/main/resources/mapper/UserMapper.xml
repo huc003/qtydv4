@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.qtyd.dao.funds.UserMapper" >
+<mapper namespace="com.qtyd.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.qtyd.model.User" >
     <id column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="type_id" property="typeId" jdbcType="INTEGER" />
@@ -80,11 +80,6 @@
     <result column="is_payment_password_sina" property="isPaymentPasswordSina" jdbcType="TINYINT" />
     <result column="logout_status" property="logoutStatus" jdbcType="TINYINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.qtyd.model.UserWithBLOBs" extends="BaseResultMap" >
-    <result column="purview" property="purview" jdbcType="LONGVARCHAR" />
-    <result column="remind" property="remind" jdbcType="LONGVARCHAR" />
-    <result column="privacy" property="privacy" jdbcType="LONGVARCHAR" />
-  </resultMap>
   <sql id="Base_Column_List" >
     user_id, type_id, `order`, username, password, paypassword, islock, invite_userid, 
     invite_money, real_status, card_type, card_id, card_pic1, card_pic2, nation, realname, 
@@ -98,14 +93,9 @@
     is_lazy_tender, device_status, task_marker, platcust, xiamen_status, is_payment_password_sina, 
     logout_status
   </sql>
-  <sql id="Blob_Column_List" >
-    purview, remind, privacy
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from dw_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
@@ -113,7 +103,7 @@
     delete from dw_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qtyd.model.UserWithBLOBs" >
+  <insert id="insert" parameterType="com.qtyd.model.User" >
     insert into dw_user (user_id, type_id, `order`, 
       username, password, paypassword, 
       islock, invite_userid, invite_money, 
@@ -169,7 +159,7 @@
       #{logoutStatus,jdbcType=TINYINT}, #{purview,jdbcType=LONGVARCHAR}, #{remind,jdbcType=LONGVARCHAR}, 
       #{privacy,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qtyd.model.UserWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.qtyd.model.User" >
     insert into dw_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -656,7 +646,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qtyd.model.UserWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.qtyd.model.User" >
     update dw_user
     <set >
       <if test="typeId != null" >
@@ -899,7 +889,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qtyd.model.UserWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.qtyd.model.User" >
     update dw_user
     set type_id = #{typeId,jdbcType=INTEGER},
       `order` = #{`order`,jdbcType=INTEGER},
@@ -1067,5 +1057,14 @@
     	select 
     		${where}
     	from dw_user
+  </select>
+  
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.qtyd.model.User">
+  	select * from dw_user 
+  	<where>
+  		<if test="user.userId != null and user.userId != ''">
+  			and user_id = #{user.userId,jdbcType=INTEGER}
+  		</if>
+  	</where>
   </select>
 </mapper>
