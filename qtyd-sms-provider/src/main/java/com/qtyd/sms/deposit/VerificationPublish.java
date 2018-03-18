@@ -1,0 +1,22 @@
+package com.qtyd.sms.deposit;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+/**
+* @author hucheng E-mail:459382234@qq.com
+* @version 创建时间：2018年3月17日 上午11:27:29
+* 类说明
+*/
+@Service
+public class VerificationPublish extends MessagePublish{
+	
+	private Logger logger = LoggerFactory.getLogger(VerificationPublish.class);
+
+	@Override
+	public void pubishMessage() {
+		logger.info("验证码短信发送中...");
+	}
+
+}

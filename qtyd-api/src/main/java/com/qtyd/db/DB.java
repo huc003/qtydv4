@@ -29,8 +29,8 @@ public class DB {
 		return new DataSource();
 	}
 
-//	@Bean(name = "sqlSessionFactory")
-	@Bean
+	@Bean(name = "sqlSessionFactory")
+//	@Bean
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource());

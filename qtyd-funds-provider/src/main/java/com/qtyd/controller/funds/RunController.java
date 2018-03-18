@@ -1,7 +1,5 @@
 package com.qtyd.controller.funds;
 
-import java.io.IOException;
-
 //import org.apache.log4j.Logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-
 import com.qtyd.utils.PropertiesUtils;
-
-import redis.clients.jedis.Jedis;
 
 /**
 * @author huc E-mail:459382234@qq.com

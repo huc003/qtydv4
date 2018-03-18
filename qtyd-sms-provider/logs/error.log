@@ -1,0 +1,30 @@
+2018-03-17 11:32:52 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishStart in com.qtyd.SmsProviderApplication required a bean of type 'com.qtyd.sms.publish.PublishStart' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.publish.PublishStart' in your configuration.
+
+2018-03-17 11:44:12 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field noticePublish in com.qtyd.sms.publish.NoticeSms required a bean of type 'com.qtyd.sms.deposit.NoticePublish' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.deposit.NoticePublish' in your configuration.
+

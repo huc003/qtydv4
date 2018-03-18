@@ -1,0 +1,101 @@
+2018-03-16 20:54:00 org.springframework.boot.SpringApplication [main] [ERROR] - [771] - Application startup failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:735)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:716)
+	at org.springframework.boot.SpringApplication.afterRefresh(SpringApplication.java:703)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.qtyd.SmsProviderApplication.main(SmsProviderApplication.java:29)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at com.qtyd.SmsProviderApplication.run(SmsProviderApplication.java:49)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:732)
+	... 6 common frames omitted
+2018-03-16 21:25:30 org.springframework.boot.SpringApplication [main] [ERROR] - [771] - Application startup failed
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:735)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:716)
+	at org.springframework.boot.SpringApplication.afterRefresh(SpringApplication.java:703)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.qtyd.SmsProviderApplication.main(SmsProviderApplication.java:38)
+Caused by: java.lang.NullPointerException: null
+	at com.qtyd.SmsProviderApplication.run(SmsProviderApplication.java:60)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:732)
+	... 6 common frames omitted
+2018-03-16 21:29:38 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishStart in com.qtyd.SmsProviderApplication required a bean of type 'com.qtyd.sms.thread.PublishStart' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.thread.PublishStart' in your configuration.
+
+2018-03-16 21:30:03 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishStart in com.qtyd.SmsProviderApplication required a bean of type 'com.qtyd.sms.thread.PublishStart' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.thread.PublishStart' in your configuration.
+
+2018-03-16 22:11:47 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishMessage in com.qtyd.sms.thread.VerificationSms required a bean of type 'com.qtyd.sms.thread.PublishMessage' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.thread.PublishMessage' in your configuration.
+
+2018-03-16 22:13:20 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishMessage in com.qtyd.sms.thread.VerificationMessage required a bean of type 'com.qtyd.sms.thread.PublishMessage' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.thread.PublishMessage' in your configuration.
+
+2018-03-16 22:15:41 org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] [ERROR] - [42] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field publishMessage in com.qtyd.sms.thread.VerificationMessage required a bean of type 'com.qtyd.sms.thread.PublishMessage' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.qtyd.sms.thread.PublishMessage' in your configuration.
+
