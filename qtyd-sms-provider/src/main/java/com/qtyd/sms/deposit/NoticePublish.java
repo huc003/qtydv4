@@ -17,6 +17,12 @@ public class NoticePublish extends MessagePublish{
 	@Override
 	public void pubishMessage() {
 		logger.info("通知短信发送中...");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

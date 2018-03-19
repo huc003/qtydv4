@@ -22,11 +22,12 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import com.qtyd.config.RedisConfig;
 import com.qtyd.config.SessionConfig;
 import com.qtyd.sms.publish.PublishStart;
+import com.qtyd.utils.RedisUtils;
 @Configuration
-@Import({RedisConfig.class,SessionConfig.class})
+@Import({RedisConfig.class,SessionConfig.class,com.qtyd.config.RedisUtils.class,RedisUtils.class})
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@ComponentScan(basePackages={"com.qtyd.db", "com.qtyd.dao", "com.qtyd.sms", "com.qtyd.service"})
+@ComponentScan(basePackages={"com.qtyd.db","com.qtyd.dao","com.qtyd.sms","com.qtyd.service"})
 @MapperScan(basePackages={"com.qtyd.dao"}, sqlSessionFactoryRef="sqlSessionFactory")
 public class SmsProviderApplication implements EmbeddedServletContainerCustomizer,CommandLineRunner{
 	

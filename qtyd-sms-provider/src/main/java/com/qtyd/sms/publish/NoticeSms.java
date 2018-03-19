@@ -1,8 +1,10 @@
 package com.qtyd.sms.publish;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import com.qtyd.sms.beans.MessageBean;
 import com.qtyd.sms.deposit.NoticePublish;
 import com.qtyd.sms.thread.PublishThread;
 
@@ -15,9 +17,12 @@ import com.qtyd.sms.thread.PublishThread;
 public class NoticeSms {
 	
 	@Autowired
+	private MessageBean messageBean;
+	
+	@Autowired
 	private NoticePublish noticePublish;
 	
 	public void main(String[] arge) {
-		new PublishThread(noticePublish).start();
+		new PublishThread(noticePublish,messageBean).start();
 	}
 }
