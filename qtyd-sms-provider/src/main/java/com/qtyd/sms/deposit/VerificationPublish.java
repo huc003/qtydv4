@@ -39,12 +39,12 @@ public class VerificationPublish extends MessagePublish{
 		
 		logger.info("验证码短信发送中...");
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //		messageBean.setSleep(Integer.parseInt(((new Date().getTime()/1000)-messageBean.getSleepTimestamps())+""));
 	}
 
