@@ -1,5 +1,9 @@
 package com.qtyd.sms.deposit;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +29,8 @@ public class VerificationPublish extends MessagePublish{
 	@Autowired
 	private com.qtyd.utils.RedisUtils redisUtils2;
 	
+	List<String> list = new ArrayList<String>();
+	
 	private Logger logger = LoggerFactory.getLogger(VerificationPublish.class);
 
 	@Override
@@ -33,12 +39,28 @@ public class VerificationPublish extends MessagePublish{
 		
 		//将信息放入redis
 		
-		redisUtils.push("static", "123456");
-		redisUtils2.push("static2", "1234567");
+//		redisUtils.push("static", new Random().nextInt(1000000000)+"");
 		
 		
-		logger.info("验证码短信发送中...");
-		
+//		
+		String r= new Random().nextInt(1000000000)+"";
+		redisUtils2.lpush("static", r);
+//		System.out.println(redisUtils2.index("static", 1l));
+//		System.out.println("======"+redisUtils.pop("static"));
+//		redisUtils2.remove("static", 0, r);
+//		System.out.println(redisUtils2.pop("static"));
+//			
+//		
+//		String s = redisUtils.pop("static");
+//		
+//		list.add(s);
+//		System.out.println("list-size:"+list.size());
+//		logger.info("验证码短信发送中...");
+//		
+//		
+//		for (String string : list) {
+//			System.out.println("===========----"+string);
+//		}
 //		try {
 //			Thread.sleep(5000);
 //		} catch (InterruptedException e) {

@@ -18,4 +18,14 @@ public class RedisUtils {
 	public Long push(String key,String value){
 		return redisTemplate.opsForList().leftPush(key, value);
 	}
+	
+	public String pop(String key){
+		return redisTemplate.opsForList().leftPop(key);
+	}
+	
+//	public void lpop(String key){
+//		return redisTemplate.opsForList().
+//	}
+	
+	
 }

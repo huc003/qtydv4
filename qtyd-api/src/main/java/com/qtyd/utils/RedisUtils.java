@@ -20,7 +20,7 @@ public class RedisUtils {
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
 	
-	public Long push(String key,String value){
+	public Long lpush(String key,String value){
 		return stringRedisTemplate.opsForList().leftPush(key, value);
 	}
 	
@@ -28,7 +28,7 @@ public class RedisUtils {
 		return stringRedisTemplate.opsForList().leftPop(key);
 	}
 	
-	public Long in(String key,String value){
+	public Long rpush(String key,String value){
 		return stringRedisTemplate.opsForList().rightPush(key, value);
 	}
 	
@@ -59,6 +59,7 @@ public class RedisUtils {
 	public void trim(String key,long start,long end){
 		stringRedisTemplate.opsForList().trim(key, start, end);
 	}
+	
 	
 	
 }

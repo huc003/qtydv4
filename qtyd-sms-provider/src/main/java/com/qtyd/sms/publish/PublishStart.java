@@ -3,6 +3,8 @@ package com.qtyd.sms.publish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.qtyd.sms.monitor.Monitor;
+import com.qtyd.sms.monitor.MonitorReporter;
 import com.qtyd.utils.ThreadPoolUtils;
 
 /**
@@ -18,6 +20,9 @@ public class PublishStart {
 	@Autowired
 	private NoticeSms noticeSms;
 	
+	@Autowired
+	private MonitorReporter monitorReporter;
+	
 	public void start(String[] args) {
 		
 		for (int i = 0; i < args.length; i++) {
@@ -27,6 +32,8 @@ public class PublishStart {
 				noticeSms.main(args);
 			}
 		}
+		
+		Monitor.startMonitor(monitorReporter);
 		
 	}
 }
