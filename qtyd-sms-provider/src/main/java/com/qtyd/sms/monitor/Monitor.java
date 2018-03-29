@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.qtyd.sms.thread.MonitorThread;
-import com.qtyd.sms.thread.PublishThread;
 
 /**
 * @author huc E-mail:459382234@qq.com
